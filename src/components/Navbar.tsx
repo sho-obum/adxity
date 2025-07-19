@@ -6,13 +6,13 @@ import MenuIcon from "../assets/icons/menu.svg";
 
 export const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const [activeDropdown, setActiveDropdown] = useState(null);
-  const [mobileDropdown, setMobileDropdown] = useState(null);
+  const [activeDropdown, setActiveDropdown] = useState<string | null>(null);
+  const [mobileDropdown, setMobileDropdown] = useState<string | null>(null);
   const [isDropdownHovered, setIsDropdownHovered] = useState(false);
   const [isClosing, setIsClosing] = useState(false);
 
-  // Ref to store the timeout ID
-  const hideTimeoutRef = useRef(null);
+  // Fixed: Use number type for browser setTimeout
+  const hideTimeoutRef = useRef<number | null>(null);
 
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
@@ -28,12 +28,12 @@ export const Navbar = () => {
 
   const startHideTimer = useCallback(() => {
     clearHideTimeout();
-    hideTimeoutRef.current = setTimeout(() => {
+    hideTimeoutRef.current = window.setTimeout(() => {
       // Step 1: Start the fade-out animation
       setIsClosing(true);
 
       // Step 2: After animation completes, hide the dropdown
-      setTimeout(() => {
+      window.setTimeout(() => {
         setActiveDropdown(null);
         setIsDropdownHovered(false);
         setIsClosing(false); // Reset closing state
@@ -43,7 +43,7 @@ export const Navbar = () => {
 
   // Handle mouse enter on navbar item
   const handleMouseEnter = useCallback(
-    (itemName) => {
+    (itemName: string) => {
       clearHideTimeout();
       setActiveDropdown(itemName);
       setIsDropdownHovered(false);
@@ -79,7 +79,7 @@ export const Navbar = () => {
     };
   }, []);
 
-  const toggleMobileDropdown = (itemName) => {
+  const toggleMobileDropdown = (itemName: string) => {
     setMobileDropdown(mobileDropdown === itemName ? null : itemName);
   };
 
@@ -148,7 +148,7 @@ export const Navbar = () => {
   };
 
   // Render dropdown content
-  const renderDropdownContent = (items, isMobile = false) => (
+  const renderDropdownContent = (items: typeof dropdownContent.Publishers, isMobile = false) => (
     <div className="space-y-2">
       {items.map((item, index) => (
         <a

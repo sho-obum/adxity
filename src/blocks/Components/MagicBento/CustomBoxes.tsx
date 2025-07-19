@@ -1,5 +1,5 @@
-'use client';
-import React, { useState } from 'react';
+"use client";
+import React, { useState } from "react";
 
 // Component for Box 1
 export const Box1Component = () => {
@@ -10,9 +10,7 @@ export const Box1Component = () => {
         <span className="big-number">1,234</span>
         <span className="label">Active Users</span>
       </div>
-      <button onClick={() => alert('Analytics clicked!')}>
-        View Details
-      </button>
+      <button onClick={() => alert("Analytics clicked!")}>View Details</button>
     </div>
   );
 };
@@ -23,9 +21,9 @@ export const Box2Component = () => {
     <div className="box2-content">
       <h3>📊 Dashboard</h3>
       <div className="chart-placeholder">
-        <div className="bar" style={{height: '60%'}}></div>
-        <div className="bar" style={{height: '80%'}}></div>
-        <div className="bar" style={{height: '40%'}}></div>
+        <div className="bar" style={{ height: "60%" }}></div>
+        <div className="bar" style={{ height: "80%" }}></div>
+        <div className="bar" style={{ height: "40%" }}></div>
       </div>
       <p>Monthly Revenue: $45,000</p>
     </div>
@@ -34,19 +32,21 @@ export const Box2Component = () => {
 
 // Component for Box 3
 export const Box3Component = () => {
-  const [tasks, setTasks] = useState(['Task 1', 'Task 2', 'Task 3']);
-  
+  const [tasks, setTasks] = useState([
+    " Lorem ipsum dolor sit, amet consectetur adipisicing elit",
+    " Lorem ipsum dolor sit, amet consectetur adipisicing elit",
+    " Lorem ipsum dolor sit, amet consectetur adipisicing elit",
+  ]);
+
   return (
     <div className="box3-content">
-      <h3>✅ Todo List</h3>
+      <h3>Why Chose Adxity</h3>
       <ul>
         {tasks.map((task, index) => (
           <li key={index}>{task}</li>
         ))}
       </ul>
-      <button onClick={() => setTasks([...tasks, `Task ${tasks.length + 1}`])}>
-        Add Task
-      </button>
+   
     </div>
   );
 };
@@ -55,18 +55,8 @@ export const Box3Component = () => {
 export const Box4Component = () => {
   return (
     <div className="box4-content">
-      <h3>👤 Profile</h3>
-      <div className="profile-info">
-        <div className="avatar">JD</div>
-        <div>
-          <h4>John Doe</h4>
-          <p>Developer</p>
-        </div>
-      </div>
-      <div className="profile-stats">
-        <span>Projects: 12</span>
-        <span>Followers: 543</span>
-      </div>
+      <h3> dashboard ss</h3>
+    
     </div>
   );
 };
